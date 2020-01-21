@@ -1,0 +1,183 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1",
+    "title" : "Warenkorb REST Service"
+  },
+  "basePath" : "/warenkorb-api",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/warenkorb-api/addToBestellList" : {
+      "post" : {
+        "summary" : "Fuegt eine Bestellung zur Bestellliste hinzu. ",
+        "description" : "",
+        "operationId" : "addToBestelltListe",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "bestellung",
+          "description" : "Bestellung",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/BestellungDto"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/warenkorb-api/addToWarenkorb" : {
+      "post" : {
+        "summary" : "Fuegt ein Produkt zum Warenkorb hinzu. ",
+        "description" : "",
+        "operationId" : "addToWarenkorb",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "product",
+          "description" : "Produkt",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/ProduktDto"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/warenkorb-api/getAllProducts" : {
+      "get" : {
+        "summary" : "Gibt alle verfuegbaren Produkte zurück. ",
+        "description" : "",
+        "operationId" : "getProduktListe",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/ProduktListeDto"
+            }
+          }
+        }
+      }
+    },
+    "/warenkorb-api/getWarenkorb" : {
+      "get" : {
+        "summary" : "Gibt den Warenkorb zurueck. ",
+        "description" : "",
+        "operationId" : "getWarenkorb",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/WarenkorbDto"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "Authorization" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
+    }
+  },
+  "definitions" : {
+    "BestellungDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "warenkorb" : {
+          "$ref" : "#/definitions/WarenkorbDto"
+        },
+        "kunde" : {
+          "$ref" : "#/definitions/KundeDto"
+        }
+      }
+    },
+    "KundeDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "geschlecht" : {
+          "type" : "string"
+        },
+        "vorname" : {
+          "type" : "string"
+        },
+        "nachname" : {
+          "type" : "string"
+        },
+        "adresse" : {
+          "type" : "string"
+        },
+        "ort" : {
+          "type" : "string"
+        },
+        "plz" : {
+          "type" : "string"
+        },
+        "email" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ProduktDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "bezeichnung" : {
+          "type" : "string"
+        },
+        "preis" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "ProduktListeDto" : {
+      "type" : "object",
+      "properties" : {
+        "produktList" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ProduktDto"
+          }
+        }
+      }
+    },
+    "WarenkorbDto" : {
+      "type" : "object",
+      "properties" : {
+        "produkte" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ProduktDto"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html >
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" class="h-100">
+<h:head>
+	<meta charset="utf-8" />
+
+	<title><ui:insert name="title">
+			<h:outputText value="Warenkorb" />
+		</ui:insert></title>
+
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+		crossorigin="anonymous">
+
+
+		<!-- <script -->
+		<!-- src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+	<f:facet name="resources">
+		<h:outputStylesheet name="style.css" library="css" />
+		<h:outputStylesheet name="bootstrap.css" library="css" />
+		<h:outputScript name="bootstrap.min.js" library="js" />
+	</f:facet>
+</h:head>
+
+<h:body id="body" class="d-flex flex-column h-100">
+
+	<ui:include src="navigation.xhtml" />
+
+	<div id="content" class="tempContent">
+		<ui:insert name="content">
+            Falls dieser Text erscheint, ist etwas schief gelaufen.
+        </ui:insert>
+	</div>
+
+	<footer class="footer mt-auto py-0">
+		<div class="container">
+			<span class="text-muted"><p:outputLabel styleClass="version"
+					value="Autor: Marina Stucki         Version: 1.0" /></span>
+		</div>
+	</footer>
+
+</h:body>
+
+</html>

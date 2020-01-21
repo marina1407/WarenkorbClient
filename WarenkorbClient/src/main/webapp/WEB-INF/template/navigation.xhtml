@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-primary"
+		style="background-color: #e3f2fd !important;">
+		<a class="navbar-brand " href="#"><span class="mb-0 h3">Warenkorb
+		</span> </a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link"
+					href="../produktAuswahl.xhtml">Produkt Auswahl <span
+						class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item active"><a class="nav-link"
+					href="../warenkorb.xhtml">Warenkorb<span class="sr-only"></span>
+				</a></li>
+
+				<p:graphicImage library="images" name="warenkorb.png"
+					styleClass="img-fluid form-inline my-2 my-lg-0 headerimage" />
+			</ul>
+		</div>
+	</nav>
+
+</ui:composition>
+</html>
+
