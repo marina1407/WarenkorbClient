@@ -7,7 +7,7 @@
   "basePath" : "/warenkorb-api",
   "schemes" : [ "http" ],
   "paths" : {
-    "/warenkorb-api/addToBestellList" : {
+    "/addToBestellList" : {
       "post" : {
         "summary" : "Fuegt eine Bestellung zur Bestellliste hinzu. ",
         "description" : "",
@@ -30,7 +30,7 @@
         }
       }
     },
-    "/warenkorb-api/addToWarenkorb" : {
+    "/addToWarenkorb" : {
       "post" : {
         "summary" : "Fuegt ein Produkt zum Warenkorb hinzu. ",
         "description" : "",
@@ -53,7 +53,7 @@
         }
       }
     },
-    "/warenkorb-api/getAllProducts" : {
+    "/getAllProducts" : {
       "get" : {
         "summary" : "Gibt alle verfuegbaren Produkte zurück. ",
         "description" : "",
@@ -70,7 +70,7 @@
         }
       }
     },
-    "/warenkorb-api/getWarenkorb" : {
+    "/getWarenkorb" : {
       "get" : {
         "summary" : "Gibt den Warenkorb zurueck. ",
         "description" : "",

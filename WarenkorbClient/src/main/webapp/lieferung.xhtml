@@ -1,4 +1,4 @@
-<ui:composition template="/WEB-INF/template/layout.xhtml"
+<ui:composition template="WEB-INF/template/layout.xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -7,34 +7,29 @@
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="content">
 
-		<h3 class="siteTitle">Adresse & Lieferung</h3>
+		<h3 class="siteTitle">Adresse und Lieferung</h3>
+		<h:form id="adresseForm">
+			<p:growl id="growl" showDetail="true" sticky="true"
+				for="messageField" />
+			<p:panelGrid columns="2" id="primefaces" class="panelgrid">
+				<p:outputLabel for="vorname" value="Vorname:" />
+				<p:inputText value="#{lieferungView.bestellung.kunde.vorname}" />
 
-		<h:form id="adresse">
-			<h:form id="adresse">
-				<p:growl id="growl" showDetail="true" sticky="true"
-					for="messageField" />
+				<p:outputLabel for="nachname" value="Nachname:" />
+				<p:inputText value="#{lieferungView.bestellung.kunde.nachname}" />
 
-				<p:panelGrid columns="2" id="primefaces" class="panelgrid">
-					<p:outputLabel for="vorname" value="Vorname:" />
-					<p:inputText value="#{lieferungView.kunde.vorname}" />
+				<p:outputLabel for="adresse" value="Adresse:" />
+				<p:inputText value="#{lieferungView.bestellung.kunde.adresse}" />
 
-					<p:outputLabel for="nachname" value="Nachname:" />
-					<p:inputText value="#{lieferungView.kunde.nachname}" />
+				<p:outputLabel for="ort" value="PLZ / Ort" />
+				<p:inputText value="#{lieferungView.bestellung.kunde.ort}" />
 
-					<p:outputLabel for="adresse" value="Adresse:" />
-					<p:inputText value="#{lieferungView.kunde.adresse}" />
+				<p:outputLabel for="email" value="Email Adresse:" />
+				<p:inputText value="#{lieferungView.bestellung.kunde.email}" />
 
-					<p:outputLabel for="ort" value="PLZ / Ort" />
-					<p:inputText value="#{lieferungView.kunde.ort}" />
-
-					<p:outputLabel for="email" value="Email Adresse:" />
-					<p:inputText value="#{lieferungView.kunde.email}" />
-
-
-					<p:commandButton value="Warenkorb bestellen"
-						action="#{lieferungView.warenkorbBestellen}" />
-				</p:panelGrid>
-
-			</h:form>
+				<p:commandButton value="Warenkorb bestellen"
+					action="#{lieferungView.warenkorbBestellen}" />
+			</p:panelGrid>
+		</h:form>
 	</ui:define>
 </ui:composition>

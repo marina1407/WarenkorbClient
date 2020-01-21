@@ -36,25 +36,14 @@ public class ProduktAuswahlView {
 	}
 
 	public List<ProduktDto> getAlleProdukte() {
-		if (alleProdukte != null) {
-			return alleProdukte;
-		} else {
+		if (alleProdukte == null) {
 			try {
-				return (List<ProduktDto>) api.getProduktListe();
+				alleProdukte= (List<ProduktDto>) api.getProduktListe();
 			} catch (ApiException e) {
 				e.printStackTrace();
 			}
-			List<ProduktDto> liste = new ArrayList<ProduktDto>();
-			liste.add(new ProduktDto(1, "iPad 128 GB", 239));
-			liste.add(new ProduktDto(2, "iPad Ladekabel", 39));
-			liste.add(new ProduktDto(3, "Apple Kopfhoerer", 39));
-			liste.add(new ProduktDto(4, "MacBook Pro 15 512 GB", 1500));
-			liste.add(new ProduktDto(5, "iPhone 11 256 GB", 1299));
-			liste.add(new ProduktDto(6, "iPhone 11 128 GB", 1099));
-			liste.add(new ProduktDto(7, "Samsung Galaxy s10 256 GB", 799));
-			liste.add(new ProduktDto(8, "Samsung Galaxy s10 128 GB", 699));
-			return liste;
 		}
+		return alleProdukte;
 	}
 
 	/**

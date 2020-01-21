@@ -69,7 +69,7 @@ public class DefaultApi {
         Object localVarPostBody = bestellung;
 
         // create path and map variables
-        String localVarPath = "/warenkorb-api/addToBestellList";
+        String localVarPath = "/addToBestellList";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -182,7 +182,7 @@ public class DefaultApi {
         Object localVarPostBody = product;
 
         // create path and map variables
-        String localVarPath = "/warenkorb-api/addToWarenkorb";
+        String localVarPath = "/addToWarenkorb";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -294,7 +294,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/warenkorb-api/getAllProducts";
+        String localVarPath = "/getAllProducts";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -407,7 +407,7 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/warenkorb-api/getWarenkorb";
+        String localVarPath = "/getWarenkorb";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

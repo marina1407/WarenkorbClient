@@ -1,8 +1,12 @@
 package ch.swisslife.warenkorb.client.integration;
 
-import ch.swisslife.warenkorb.server.rest.ApiClient;
 import ch.swisslife.warenkorb.server.rest.api.DefaultApi;
 
+/**
+ * Diese klasse hilft die Verbindung zum Rest-Service aufzubauen. 
+ * @author Marina
+ *
+ */
 public class ApiConnectionHelper {
 
 	private static DefaultApi api;

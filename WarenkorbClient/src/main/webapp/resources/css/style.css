@@ -1,1 +1,35 @@
-@charset "ISO-8859-1";
+.headerimage {
+	height: 40px !important;
+}
+
+.tempContent {
+	margin: 25px !important;
+	margin-left: 45px !important;
+}
+
+.column {
+	padding-top: 10px;
+	float: left !important;
+}
+
+.column1 {
+	padding-right: 200px !important;
+}
+
+.panelgrid tr, .panelgrid td {
+	border: none !important;
+	border-style: none !important;
+	background: none !important;
+	background-color: transparent !important;
+}
+
+.titelUmgebung {
+	color: blue;
+	font-style: italic;
+	font-size: x-large;
+}
+
+.checkboxLabel {
+	margin-bottom: 0px !important;
+	margin-top: 7px !important;
+}

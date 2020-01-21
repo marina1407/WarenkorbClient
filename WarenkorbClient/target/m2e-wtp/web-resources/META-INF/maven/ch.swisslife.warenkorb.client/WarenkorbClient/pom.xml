@@ -1,0 +1,209 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ch.swisslife.warenkorb.client</groupId>
+	<artifactId>WarenkorbClient</artifactId>
+	<version>0.0.1</version>
+	<packaging>war</packaging>
+
+	<properties>
+		<dependency.javaee-api.version>7.0</dependency.javaee-api.version>
+		<dependency.junit.version>4.12</dependency.junit.version>
+		<dependency.commons-lang.version>2.6</dependency.commons-lang.version>
+
+		<dependency.primefaces.verion>6.2</dependency.primefaces.verion>
+		<!-- <dependency.swagger.version>1.5.18</dependency.swagger.version> -->
+		<dependency.httpCore.version>4.4.1</dependency.httpCore.version>
+		<dependency.httpClient.version>4.5</dependency.httpClient.version>
+
+		<dependency.jersey.version>2.27</dependency.jersey.version>
+		<dependency.json-fire.version>1.8.2</dependency.json-fire.version>
+		<dependency.okhttp.version>2.7.5</dependency.okhttp.version>
+
+	</properties>
+
+
+	<build>
+		<plugins>
+
+			<!-- <plugin> -->
+			<!-- <artifactId>maven-compiler-plugin</artifactId> -->
+			<!-- <configuration> -->
+			<!-- <source>1.8</source> -->
+			<!-- <target>1.8</target> -->
+			<!-- </configuration> -->
+			<!-- </plugin> -->
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/swagger</outputDirectory>
+							<includeTypes>json</includeTypes>
+							<stripVersion>true</stripVersion>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>io.swagger</groupId>
+				<artifactId>swagger-codegen-maven-plugin</artifactId>
+				<version>	2.4.10</version>
+				<executions>
+
+					<!-- Generate the REST-Service Client for Testing -->
+					<execution>
+						<id>warenkorb-api</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${project.build.directory}/swagger/WarenkorbServer-service.json</inputSpec>
+							<language>java</language>
+							<output>${basedir}/target/generated-sources</output>
+							<removeOperationIdPrefix>true</removeOperationIdPrefix>
+							<generateApis>true</generateApis>
+							<generateApiDocumentation>false</generateApiDocumentation>
+							<generateApiTests>false</generateApiTests>
+							<generateModelDocumentation>false</generateModelDocumentation>
+							<generateModelTests>false</generateModelTests>
+							<generateSupportingFiles>true</generateSupportingFiles>
+							<configOptions>
+								<sourceFolder>java</sourceFolder>
+								<apiPackage>ch.swisslife.warenkorb.server.rest.api</apiPackage>
+								<modelPackage>ch.swisslife.warenkorb.server.rest.model</modelPackage>
+								<dateLibrary>java8-localdatetime</dateLibrary>
+								<java8>true</java8>
+							</configOptions>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<!-- ............................................... -->
+	<!-- dependencies -->
+	<!-- ............................................... -->
+	<dependencies>
+		<!-- compile -->
+		<!-- General -->
+
+		<dependency>
+			<groupId>io.gsonfire</groupId>
+			<artifactId>gson-fire</artifactId>
+			<version>${dependency.json-fire.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.squareup.okhttp</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>${dependency.okhttp.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.squareup.okhttp</groupId>
+			<artifactId>logging-interceptor</artifactId>
+			<version>${dependency.okhttp.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>${dependency.javaee-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${dependency.commons-lang.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>${dependency.jersey.version}</version>
+			<!-- <scope>provided</scope> -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.jersey.connectors</groupId>
+			<artifactId>jersey-apache-connector</artifactId>
+			<version>${dependency.jersey.version}</version>
+		</dependency>
+
+		<!-- provided -->
+		<dependency>
+			<groupId>ch.swisslife.warenkorb.server</groupId>
+			<artifactId>WarenkorbServer</artifactId>
+			<version>0.0.1</version>
+			<type>json</type>
+			<classifier>service</classifier>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${dependency.junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.10</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>2.28</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>${dependency.primefaces.verion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>${dependency.httpCore.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${dependency.httpClient.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.squareup.okhttp</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>${dependency.okhttp.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.squareup.okhttp</groupId>
+			<artifactId>logging-interceptor</artifactId>
+			<version>${dependency.okhttp.version}</version>
+		</dependency>
+
+
+	</dependencies>
+</project>

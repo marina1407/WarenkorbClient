@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ProduktListeDto
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-21T08:14:54.613+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-01-21T11:17:18.917+01:00")
 public class ProduktListeDto {
   @SerializedName("produktList")
   private List<ProduktDto> produktList = null;

@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import ch.swisslife.warenkorb.client.integration.ApiConnectionHelper;
+import ch.swisslife.warenkorb.server.rest.ApiException;
 import ch.swisslife.warenkorb.server.rest.api.DefaultApi;
 import ch.swisslife.warenkorb.server.rest.model.ProduktDto;
 
@@ -36,7 +37,11 @@ public class WarenkorbView {
 	 */
 	public List<ProduktDto> getProdukteImWarenkorb() {
 		if (produkteImWarenkorb == null) {
-			// rest service
+			try {
+				produkteImWarenkorb = api.getWarenkorb().getProdukte();
+			} catch (ApiException e) {
+				e.printStackTrace();
+			}
 		}
 		return produkteImWarenkorb;
 	}
@@ -55,5 +60,4 @@ public class WarenkorbView {
 		this.totalPrice = totalPrice;
 	}
 
-	
 }
