@@ -9,7 +9,7 @@
 
 	<properties>
 		<dependency.javaee-api.version>7.0</dependency.javaee-api.version>
-		<dependency.junit.version>4.12</dependency.junit.version>
+		<dependency.junit.version>4.13.1</dependency.junit.version>
 		<dependency.commons-lang.version>2.6</dependency.commons-lang.version>
 
 		<dependency.primefaces.verion>6.2</dependency.primefaces.verion>
