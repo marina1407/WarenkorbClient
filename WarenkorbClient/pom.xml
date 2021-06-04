@@ -15,7 +15,7 @@
 		<dependency.primefaces.verion>6.2</dependency.primefaces.verion>
 		<!-- <dependency.swagger.version>1.5.18</dependency.swagger.version> -->
 		<dependency.httpCore.version>4.4.1</dependency.httpCore.version>
-		<dependency.httpClient.version>4.5</dependency.httpClient.version>
+		<dependency.httpClient.version>4.5.13</dependency.httpClient.version>
 
 		<dependency.jersey.version>2.27</dependency.jersey.version>
 		<dependency.json-fire.version>1.8.2</dependency.json-fire.version>
